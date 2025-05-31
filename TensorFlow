@@ -1,0 +1,402 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyO/krJyJz/7P5pusjBvO2f6",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Yusronaritama/CV-Online/blob/main/TensorFlow\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "fdiLpmjnv26Y"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from google.colab import drive\n",
+        "drive.mount('/content/drive')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Eapy4p0uv6VY",
+        "outputId": "46c19f0d-e664-4198-9255-32a0516c9816"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount(\"/content/drive\", force_remount=True).\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import os\n",
+        "\n",
+        "# Tentukan folder utama\n",
+        "folder_path = '/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/'\n",
+        "\n",
+        "# Menelusuri kedua subfolder dan mengambil semua file gambar\n",
+        "for subfolder in ['Leclerc', 'Leopard']:\n",
+        "    subfolder_path = os.path.join(folder_path, subfolder)\n",
+        "\n",
+        "    for root, dirs, files in os.walk(subfolder_path):\n",
+        "        for file in files:\n",
+        "            # Membaca file gambar, misalnya menggunakan OpenCV atau PIL\n",
+        "            image_path = os.path.join(root, file)\n",
+        "            print(image_path)  # Ini akan menampilkan path lengkap dari setiap gambar\n"
+      ],
+      "metadata": {
+        "id": "dz5Y1wxEw309",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "e939bde2-419a-4b06-adc5-7c91085c3ffa"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/Leclerc-openphotonet_PICT6015.jpeg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/XLR-scaled-1.jpg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/images.jpeg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/Tank-Leclerc-MBT.jpg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/Nexter-CKP-Leclerc.jpg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/Leclerc.jpg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/1.jpg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/Leclerc11-e1624635356294.jpg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/3nmhkux.jpg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/800px-ArtImage_Leclerc.jpg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/Leopard_2A7A1_MBT_Main_Battle_Tank_Germany_KNDS_Rheinmetall_1920_002-f8232ce7.jpeg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/Leopard_2A7A1_MBT_Main_Battle_Tank_Germany_KNDS_Rheinmetall_1920_001.jpg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/KNDS-Deutschland-unveils-Leopard-2A7A1-tank-with-Trophy-protection-system.jpg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/Ex4CXFRWEAM8fC-.jpg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/tank-tempur-paling-mengerikan.jpeg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/KNDS-orders-Trophy-APS-for-German-and-Norwegian-Leopard-2A8-tanks.jpg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/snimok_ekrana_2021-11-02_v_21-42-53-635c9a28b7550fde17059cc779c9b192.jpg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/6096_03360.jpg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/unnamed.jpg\n",
+            "/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/newsCover_2025_5_16_1747362820163-it33.jpeg\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import tensorflow as tf\n",
+        "from tensorflow.keras.preprocessing.image import ImageDataGenerator\n",
+        "from tensorflow.keras import layers, models\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "datagen = ImageDataGenerator(rescale=1./255, validation_split=0.2)\n",
+        "\n",
+        "train = datagen.flow_from_directory(\n",
+        "    \"/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10\",\n",
+        "    target_size=(150, 150),\n",
+        "    class_mode='binary',\n",
+        "    batch_size=16,\n",
+        "    subset='training'\n",
+        ")\n",
+        "\n",
+        "val = datagen.flow_from_directory(\n",
+        "    \"/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10\",\n",
+        "    target_size=(150, 150),\n",
+        "    class_mode='binary',\n",
+        "    batch_size=16,\n",
+        "    subset='validation'\n",
+        ")\n",
+        "\n",
+        "# Model CNN sederhana\n",
+        "model = models.Sequential([\n",
+        "    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(150, 150, 3)),\n",
+        "    layers.MaxPooling2D(2, 2),\n",
+        "    layers.Conv2D(64, (3, 3), activation='relu'),\n",
+        "    layers.MaxPooling2D(2, 2),\n",
+        "    layers.Flatten(),\n",
+        "    layers.Dense(64, activation='relu'),\n",
+        "    layers.Dense(1, activation='sigmoid')\n",
+        "])\n",
+        "\n",
+        "model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])\n",
+        "\n",
+        "# Training\n",
+        "history = model.fit(train, epochs=10, validation_data=val)\n",
+        "\n",
+        "# Plot akurasi\n",
+        "plt.plot(history.history['accuracy'], label='Train Acc')\n",
+        "plt.plot(history.history['val_accuracy'], label='Val Acc')\n",
+        "plt.legend()\n",
+        "plt.show()\n"
+      ],
+      "metadata": {
+        "id": "zyTuWFs7zHoQ",
+        "outputId": "dbe4d347-f09b-4e34-d615-bcefdf434040",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 901
+        }
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Found 16 images belonging to 1 classes.\n",
+            "Found 4 images belonging to 1 classes.\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "/usr/local/lib/python3.11/dist-packages/keras/src/layers/convolutional/base_conv.py:107: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.\n",
+            "  super().__init__(activity_regularizer=activity_regularizer, **kwargs)\n",
+            "/usr/local/lib/python3.11/dist-packages/keras/src/trainers/data_adapters/py_dataset_adapter.py:121: UserWarning: Your `PyDataset` class should call `super().__init__(**kwargs)` in its constructor. `**kwargs` can include `workers`, `use_multiprocessing`, `max_queue_size`. Do not pass these arguments to `fit()`, as they will be ignored.\n",
+            "  self._warn_if_super_not_called()\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Epoch 1/10\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m5s\u001b[0m 5s/step - accuracy: 0.3125 - loss: 0.6966 - val_accuracy: 1.0000 - val_loss: 1.2897e-08\n",
+            "Epoch 2/10\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 813ms/step - accuracy: 1.0000 - loss: 3.2234e-07 - val_accuracy: 1.0000 - val_loss: 2.6416e-14\n",
+            "Epoch 3/10\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 797ms/step - accuracy: 1.0000 - loss: 1.3149e-11 - val_accuracy: 1.0000 - val_loss: 3.4540e-19\n",
+            "Epoch 4/10\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 842ms/step - accuracy: 1.0000 - loss: 2.4071e-15 - val_accuracy: 1.0000 - val_loss: 1.5056e-23\n",
+            "Epoch 5/10\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 790ms/step - accuracy: 1.0000 - loss: 1.1132e-18 - val_accuracy: 1.0000 - val_loss: 1.6547e-27\n",
+            "Epoch 6/10\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 799ms/step - accuracy: 1.0000 - loss: 1.0512e-21 - val_accuracy: 1.0000 - val_loss: 3.8818e-31\n",
+            "Epoch 7/10\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 788ms/step - accuracy: 1.0000 - loss: 1.8140e-24 - val_accuracy: 1.0000 - val_loss: 1.7702e-34\n",
+            "Epoch 8/10\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 1s/step - accuracy: 1.0000 - loss: 5.2988e-27 - val_accuracy: 1.0000 - val_loss: 1.4489e-37\n",
+            "Epoch 9/10\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 799ms/step - accuracy: 1.0000 - loss: 2.4771e-29 - val_accuracy: 1.0000 - val_loss: 0.0000e+00\n",
+            "Epoch 10/10\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 772ms/step - accuracy: 1.0000 - loss: 1.7703e-31 - val_accuracy: 1.0000 - val_loss: 0.0000e+00\n"
+          ]
+        },
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/plain": [
+              "<Figure size 640x480 with 1 Axes>"
+            ],
+            "image/png": "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eTxSXFSEesVajS4HAICg164wsmzZMqWmpioqKkpjxozR5s2bz3n88ePHNWvWLPXt21c2m00XXnihPvjgg3YVHOx+2AbeZGJZLwAArYnw9YRVq1YpJydHK1as0JgxY5SXl6esrCzt2LFDffr0Oev42tpaXXPNNerTp4/+8Ic/KDk5WXv27FH37t39UX/QKWIlDQAAPvE5jCxZskQzZ85Udna2JGnFihV6//33VVBQoHnz5p11fEFBgY4eParPPvtMkZGRkqTU1NSOVR3Eist4Wy8AAL7w6TFNbW2ttmzZoszMzDMXMJuVmZmpTZs2NXvOmjVrNHbsWM2aNUt2u12XXHKJFi9eLJfL1eJ9ampq5HQ6m2yhwruShjACAECb+BRGysvL5XK5ZLfbm+y32+0qKSlp9pyioiL94Q9/kMvl0gcffKDHHntMzz33nJ566qkW75Obm6uEhATvlpKS4kuZhiKMAADgm4CvpnG73erTp49eeuklpaena/LkyXrkkUe0YsWKFs+ZP3++KioqvNu+ffsCXaZfVFTX6UhVrSTCCAAAbeXTnJHExERZLBaVlpY22V9aWqqkpKRmz+nbt68iIyNlsVi8+y6++GKVlJSotrZWVuvZy19tNptsNpsvpQWFotMraezxNsXafJ6OAwBAWPJpZMRqtSo9PV0Oh8O7z+12y+FwaOzYsc2ec/nll+v777+X2+327tu5c6f69u3bbBAJZd530iSykgYAgLby+TFNTk6OXn75Zf3ud7/Ttm3bdO+996qqqsq7umbatGmaP3++9/h7771XR48e1Zw5c7Rz5069//77Wrx4sWbNmuW/3yJI0AYeAADf+fwsYfLkySorK9OCBQtUUlKikSNHau3atd5JrXv37pXZfCbjpKSkaN26dbr//vs1YsQIJScna86cOfrlL3/pv98iSPCCPAAAfGfyeDweo4tojdPpVEJCgioqKhQfH290OS2a8OtPte2QU/nTM3T1xfbWTwAAoAtr6/c376bxE7fbo90s6wUAwGeEET8pPXFKJ+tcijCblNIzxuhyAAAIGYQRP2lsA9+/Z4wiLfxZAQBoK741/aSIRzQAALQLYcRPaAMPAED7EEb8pKisofsqPUYAAPANYcRPGBkBAKB9CCN+UFvv1r5jJyVJg3rTCh4AAF8QRvxg37FqudwexVgt6hMXei/4AwDASIQR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9FK/3qOgoEA33XRTs13Eb775Zq1Zs0bl5eWaPn268vLytHz5cg0bNkzXX3+9vvvuO++x77zzji677DLdeuutGjp0qB566CG5XC6/1vpDJo8/1zEFiNPpVEJCgioqKhQfH+/367vdHg1buE4n61z68IErNbA3j2oAoDOcOnXKu8ojKirK6HLQDuf6DNv6/c3IiKTSE6d0ss4li9mklJ68xhoAgM5EGNGZRzT9e8Yo0sKfBACAzsQ3r3hBHgAARiKMiDbwAAAYiTAiXpAHAICRCCOSisoaWsHzmAYAgM4X9mGktt6tfcdOSpIG0n0VAIBOF/ZhZN+xarncHkVHWmSPtxldDgAAYSfsw8gPO68217EOAAAEFmGkcSUNk1cBAJ1s/Pjxmjt3rtFlGC7sw0hRecPkVZb1AgDaatKkSS2+NO7TTz+VyWTSV1995bf7nTx5Uj179lRiYqJqamr8dt1gQRgpY1kvAMA3M2bM0Pr167V///6zfvbKK68oIyNDI0aM8Nv93nnnHQ0bNkxDhgzRu+++67frBouwDyPeHiOspAEAtNH111+v3r17a+XKlU32V1ZW6u2339aMGTN05MgR3XrrrUpOTlZMTIyGDx+uN954o133y8/P19SpUzV16lTl5+ef9fN//OMfuv766xUfH6+4uDj95Cc/0a5du7w/Lygo0LBhw2Sz2dS3b1/Nnj27XXUESoTRBRipsqZeh080DHcN6MXICAAEBY9Hqqs25t6RMVIbFjNERERo2rRpWrlypR555BHvAoi3335bLpdLt956qyorK5Wenq5f/vKXio+P1/vvv6/bb79dgwYN0ujRo9tc0q5du7Rp0yatXr1aHo9H999/v/bs2aPzzz9fknTgwAFdccUVGj9+vD788EPFx8dr48aNqq+vlyS98MILysnJ0TPPPKMJEyaooqJCGzdubMcfJ3DCOozsPj0q0ivWqoSYSIOrAQBIaggii/sZc++HD0rWtv3H6Z133qlnn31WH3/8scaPHy+p4RHNzTffrISEBCUkJOjBBx/0Hn/fffdp3bp1euutt3wKIwUFBZowYYJ69OghScrKytIrr7yixx9/XJK0bNkyJSQk6M0331RkZMN32YUXXug9/6mnntIDDzygOXPmePdddtllbb5/ZwjrxzRFrKQBALTTkCFDNG7cOBUUFEiSvv/+e3366aeaMWOG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unSp0aWFrLBd2jtmzBhddtllev755yU1vP8mJSVF9913n+bNm2dwdeGtrKxMffr00ccff6wrrrjC6HLCVmVlpS699FItX75cTz31lEaOHKm8vDyjywo78+bN08aNG/Xpp58aXQpOu/7662W325Wfn+/dd/PNNys6OlqvvfaagZWFrrAcGamtrdWWLVuUmZnp3Wc2m5WZmalNmzYZWBkkqaKiQpLUs2dPgysJb7NmzdJ1113X5H8n6Hxr1qxRRkaGfvazn6lPnz4aNWqUXn75ZaPLCmvjxo2Tw+HQzp07JUn/93//pw0bNmjChAkGVxa6QuJFef5WXl4ul8slu93eZL/dbtf27dsNqgpSwwjV3Llzdfnll+uSSy4xupyw9eabb2rr1q36/PPPjS4l7BUVFemFF15QTk6OHn74YX3++ef693//d1mtVk2fPt3o8sLSvHnz5HQ6NWTIEFksFrlcLj399NO67bbbjC4tZIVlGEHwmjVrlr755htt2LDB6FLC1r59+zRnzhytX79eUVFRRpcT9txutzIyMrR48WJJ0qhRo/TNN99oxYoVhBGDvPXWW/qf//kfvf766xo2bJgKCws1d+5c9evXj8+kncIyjCQmJspisai0tLTJ/tLSUiUlJRlUFWbPnq0///nP+uSTT3TeeecZXU7Y2rJliw4fPqxLL73Uu8/lcumTTz7R888/r5qaGlksFgMrDC99+/bV0KFDm+y7+OKL9c477xhUEf7jP/5D8+bN05QpUyRJw4cP1549e5Sbm0sYaaewnDNitVqVnp4uh8Ph3ed2u+VwODR27FgDKwtPHo9Hs2fP1h//+Ed9+OGHGjBggNElhbWrr75aX3/9tQoLC71bRkaGbrvtNhUWFhJEOtnll19+1lL3nTt36vzzzzeoIlRXV8tsbvr1abFY5Ha7Daoo9IXlyIgk5eTkaPr06crIyNDo0aOVl5enqqoqZWdnG11a2Jk1a5Zef/11vffee4qLi1NJSYkkKSEhQdHR0QZXF37i4uLOmq8TGxurXr16MY/HAPfff7/GjRunxYsX65ZbbtHmzZv10ksv6aWXXjK6tLA1adIkPf300+rfv7+GDRumL7/8UkuWLNGdd95pdGmhyxPGli5d6unfv7/HarV6Ro8e7fn73/9udElhSVKz2yuvvGJ0aTjtyiuv9MyZM8foMsLWn/70J88ll1zisdlsniFDhnheeuklo0sKa06n0zNnzhxP//79PVFRUZ6BAwd6HnnkEU9NTY3RpYWssO0zAgAAgkNYzhkBAADBgzACAAAMRRgBAACGIowAAABDEUYAAIChCCMAAMBQhBEAAGAowggAADAUYQQAABiKMAIAAAxFGAEAAIYijAAAAEP9P/TwD9tHMSLDAAAAAElFTkSuQmCC\n"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "model.save('/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/keras_model.h5')\n"
+      ],
+      "metadata": {
+        "id": "h9J6Nw192hX8",
+        "outputId": "c73c3b04-9d12-49d9-eb68-1a069879f58d",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "WARNING:absl:You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. \n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import zipfile\n",
+        "zip_path = '/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/converted_keras.zip'\n",
+        "extract_path = '/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10'\n",
+        "\n",
+        "with zipfile.ZipFile(zip_path, 'r') as zip_ref:\n",
+        "    zip_ref.extractall(extract_path)\n",
+        "\n",
+        "print(\"ZIP berhasil diekstrak ke /content/\")\n"
+      ],
+      "metadata": {
+        "id": "z2IxqgyO2udj",
+        "outputId": "15883a20-4bb9-428e-8a61-7ba811f87f05",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "ZIP berhasil diekstrak ke /content/\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from tensorflow import keras\n",
+        "from tensorflow.keras.preprocessing import image\n",
+        "import numpy as np\n",
+        "import os\n",
+        "\n",
+        "# Load model\n",
+        "model = keras.models.load_model('/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/keras_model.h5')\n",
+        "\n",
+        "# Path folder gambar uji\n",
+        "img_dir_leclerc = '/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc'  # Folder untuk model Leclerc\n",
+        "img_dir_leopard = '/content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard'  # Folder untuk model Leopard\n",
+        "\n",
+        "# Fungsi untuk prediksi gambar dalam folder\n",
+        "def predict_tank_images(img_dir):\n",
+        "    for fname in os.listdir(img_dir):\n",
+        "        if fname.lower().endswith(('.jpg', '.png')):\n",
+        "            img_path = os.path.join(img_dir, fname)\n",
+        "            print(f\"🔍 Memproses: {img_path}\")\n",
+        "\n",
+        "            try:\n",
+        "                img = image.load_img(img_path, target_size=(150, 150))\n",
+        "                img_array = image.img_to_array(img) / 255.0  # Normalisasi gambar\n",
+        "                img_array = np.expand_dims(img_array, axis=0)  # Mengubah dimensi array untuk prediksi\n",
+        "\n",
+        "                # Prediksi model\n",
+        "                pred = model.predict(img_array)[0][0]\n",
+        "\n",
+        "                # Menentukan kategori berdasarkan threshold\n",
+        "                if pred >= 0.5:\n",
+        "                    print(f\"✅ {fname} → Leopard\")\n",
+        "                else:\n",
+        "                    print(f\"✅ {fname} → Leclerc\")\n",
+        "            except Exception as e:\n",
+        "                print(f\"❌ Error saat proses {img_path}: {e}\")\n",
+        "\n",
+        "# Prediksi gambar di folder Leclerc dan Leopard\n",
+        "print(\"🔎 Prediksi Gambar di Folder Leclerc:\")\n",
+        "predict_tank_images(img_dir_leclerc)\n",
+        "\n",
+        "print(\"\\n🔎 Prediksi Gambar di Folder Leopard:\")\n",
+        "predict_tank_images(img_dir_leopard)\n"
+      ],
+      "metadata": {
+        "id": "6b-M4Tan3O5x",
+        "outputId": "ed422797-8238-478d-8572-0fa8ebd2310d",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "WARNING:absl:Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "🔎 Prediksi Gambar di Folder Leclerc:\n",
+            "🔍 Memproses: /content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/XLR-scaled-1.jpg\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 108ms/step\n",
+            "✅ XLR-scaled-1.jpg → Leclerc\n",
+            "🔍 Memproses: /content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/Tank-Leclerc-MBT.jpg\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 46ms/step\n",
+            "✅ Tank-Leclerc-MBT.jpg → Leclerc\n",
+            "🔍 Memproses: /content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/Nexter-CKP-Leclerc.jpg\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 52ms/step\n",
+            "✅ Nexter-CKP-Leclerc.jpg → Leclerc\n",
+            "🔍 Memproses: /content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/Leclerc.jpg\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 47ms/step\n",
+            "✅ Leclerc.jpg → Leclerc\n",
+            "🔍 Memproses: /content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/1.jpg\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 48ms/step\n",
+            "✅ 1.jpg → Leclerc\n",
+            "🔍 Memproses: /content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/Leclerc11-e1624635356294.jpg\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 46ms/step\n",
+            "✅ Leclerc11-e1624635356294.jpg → Leclerc\n",
+            "🔍 Memproses: /content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/3nmhkux.jpg\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 46ms/step\n",
+            "✅ 3nmhkux.jpg → Leclerc\n",
+            "🔍 Memproses: /content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leclerc/800px-ArtImage_Leclerc.jpg\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 49ms/step\n",
+            "✅ 800px-ArtImage_Leclerc.jpg → Leclerc\n",
+            "\n",
+            "🔎 Prediksi Gambar di Folder Leopard:\n",
+            "🔍 Memproses: /content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/Leopard_2A7A1_MBT_Main_Battle_Tank_Germany_KNDS_Rheinmetall_1920_001.jpg\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 45ms/step\n",
+            "✅ Leopard_2A7A1_MBT_Main_Battle_Tank_Germany_KNDS_Rheinmetall_1920_001.jpg → Leclerc\n",
+            "🔍 Memproses: /content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/KNDS-Deutschland-unveils-Leopard-2A7A1-tank-with-Trophy-protection-system.jpg\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 47ms/step\n",
+            "✅ KNDS-Deutschland-unveils-Leopard-2A7A1-tank-with-Trophy-protection-system.jpg → Leclerc\n",
+            "🔍 Memproses: /content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/Ex4CXFRWEAM8fC-.jpg\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 46ms/step\n",
+            "✅ Ex4CXFRWEAM8fC-.jpg → Leclerc\n",
+            "🔍 Memproses: /content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/KNDS-orders-Trophy-APS-for-German-and-Norwegian-Leopard-2A8-tanks.jpg\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 48ms/step\n",
+            "✅ KNDS-orders-Trophy-APS-for-German-and-Norwegian-Leopard-2A8-tanks.jpg → Leclerc\n",
+            "🔍 Memproses: /content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/snimok_ekrana_2021-11-02_v_21-42-53-635c9a28b7550fde17059cc779c9b192.jpg\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 59ms/step\n",
+            "✅ snimok_ekrana_2021-11-02_v_21-42-53-635c9a28b7550fde17059cc779c9b192.jpg → Leclerc\n",
+            "🔍 Memproses: /content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/6096_03360.jpg\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 46ms/step\n",
+            "✅ 6096_03360.jpg → Leclerc\n",
+            "🔍 Memproses: /content/drive/MyDrive/Semester 4/Kecerdasan Tiruan/Pertemuan 10/Dataset Gambar Tank/Leopard/unnamed.jpg\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 44ms/step\n",
+            "✅ unnamed.jpg → Leclerc\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
